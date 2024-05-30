@@ -1,0 +1,8 @@
+{
+  "name": "healthcare-telemedicine-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/healthcare-telemedicine-e2e/src",
+  "implicitDependencies": ["healthcare-telemedicine"],
+  "// targets": "to see all targets run: nx show project healthcare-telemedicine-e2e --web",
+  "targets": {}
+}

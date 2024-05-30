@@ -1,0 +1,8 @@
+query Employees($companyId: Int) {
+  employees(where: { company_id: { _eq: $companyId } }) {
+    cost
+    email
+    id
+    name
+  }
+}

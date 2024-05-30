@@ -1,0 +1,7 @@
+query Services($companyId: Int) {
+  services(where: { company_id: { _eq: $companyId } }) {
+    id
+    name
+    description
+  }
+}

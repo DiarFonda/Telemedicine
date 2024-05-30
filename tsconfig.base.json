@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["ES2022"],
+    "skipLibCheck": true,
+    "strict": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@diar/apollo": ["libs/apollo/src/index.ts"],
+      "@diar/graphql": ["libs/graphql/generated/graphql.ts"],
+      "@diar/hooks": ["libs/my-hooks/src/index.ts"],
+      "@diar/state": ["libs/state/src/index.ts"],
+      "@diar/donda": ["libs/donda/src/index.ts"],
+      "@diar/utils": ["libs/utils/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

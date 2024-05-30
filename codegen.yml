@@ -1,0 +1,34 @@
+overwrite: true
+schema:
+  - http://localhost:8080/v1/graphql:
+      headers:
+        x-hasura-admin-secret: 9ApOfDY1xtKdSUhw0mjvNbSBuTOGjoSpU1t277M7e83tWGs7ScNe5LM8aI4NPXGv
+documents: ['libs/graphql/**/*.graphql']
+generates:
+  libs/graphql/generated/graphql.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
+    config:
+      withHooks: true
+      withRefetchFn: false
+      withComponent: false
+      withMutationOptionsType: false
+      withMutationFn: true
+      addDocBlocks: true
+      addOperationExport: false
+      withResultType: true
+      pureMagicComment: true
+      skipTypename: true
+      useTypeImports: true
+      declarationKind: 'interface'
+      directiveArgumentAndInputFieldMappingTypeSuffix: Model
+      inputMaybeValue: 'T | null | undefined'
+      maybeValue: 'T | undefined'
+      # strictScalars: true
+      scalars:
+        Decimal: string
+        Number: number
+        uuid: string
+        IdArray: number[]
