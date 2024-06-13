@@ -19,7 +19,6 @@ export const DateTimeSelector = ({ companySlug }: { companySlug: String }) => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(
     new Date()
   );
-  //  const [selectedDateTime, setSelectedDateTime] = useState('')
   const formattedDate = selectedDate?.toLocaleDateString('en-UK', {
     year: '2-digit',
     month: '2-digit',
@@ -32,7 +31,6 @@ export const DateTimeSelector = ({ companySlug }: { companySlug: String }) => {
     return `${String(formattedDate)} ${selectedValue}`;
   }, [selectedValue, formattedDate]);
 
-  console.log(selectedDateTime);
   const handleSelect = (value: string) => {
     setSelectedValue(value);
   };
@@ -47,6 +45,7 @@ export const DateTimeSelector = ({ companySlug }: { companySlug: String }) => {
       </CardHeader>
       <CardContent className="flex">
         <div className="flex-grow mr-4">
+          <h3 className="mb-2">Select a Date</h3>
           <Calendar
             mode="single"
             className="rounded-md border"
@@ -54,22 +53,24 @@ export const DateTimeSelector = ({ companySlug }: { companySlug: String }) => {
             onSelect={setSelectedDate}
           />
         </div>
-        <Select onValueChange={(value) => handleSelect(value)}>
-          <SelectTrigger className="w-[200px] truncate">
-            <SelectValue placeholder={'Choose time'} />
-            {/* <span>Choose time</span> */}
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="9-10">9-10</SelectItem>
-            <SelectItem value="10-11">10-11</SelectItem>
-            <SelectItem value="11-12">11-12</SelectItem>
-            <SelectItem value="12-13">12-13</SelectItem>
-            <SelectItem value="'13-14">13-14</SelectItem>
-            <SelectItem value="14-15">14-15</SelectItem>
-            <SelectItem value="15-16">15-16</SelectItem>
-            <SelectItem value="16-17">16-17</SelectItem>
-          </SelectContent>
-        </Select>
+        <div>
+          <h3 className="mb-2">Select Time</h3>
+          <Select onValueChange={(value) => handleSelect(value)}>
+            <SelectTrigger className="truncate w-[100px]">
+              <SelectValue placeholder={'Select'} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="9-10">9-10</SelectItem>
+              <SelectItem value="10-11">10-11</SelectItem>
+              <SelectItem value="11-12">11-12</SelectItem>
+              <SelectItem value="12-13">12-13</SelectItem>
+              <SelectItem value="13-14">13-14</SelectItem>
+              <SelectItem value="14-15">14-15</SelectItem>
+              <SelectItem value="15-16">15-16</SelectItem>
+              <SelectItem value="16-17">16-17</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
       </CardContent>
       <CardFooter className="w-80%">
         <Button

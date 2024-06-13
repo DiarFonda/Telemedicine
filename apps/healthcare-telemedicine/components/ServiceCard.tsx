@@ -82,7 +82,7 @@ export const ServiceCard = ({
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle className="my-10">{name}</DialogTitle>
+              <DialogTitle className="mb-8">{name}</DialogTitle>
               <DialogDescription>{description}</DialogDescription>
             </DialogHeader>
           </DialogContent>
