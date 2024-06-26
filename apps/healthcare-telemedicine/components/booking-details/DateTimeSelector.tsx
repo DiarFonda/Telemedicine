@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Calendar,
   Card,
@@ -13,27 +14,29 @@ import {
   Button,
 } from '@diar/donda';
 import { SelectValue } from '@radix-ui/react-select';
-import { useMemo, useState } from 'react';
+import { useBooking } from '@diar/hooks';
 
-export const DateTimeSelector = ({ companySlug }: { companySlug: String }) => {
+export const DateTimeSelector = () => {
+  //need improvement
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(
     new Date()
   );
-  const formattedDate = selectedDate?.toLocaleDateString('en-UK', {
-    year: '2-digit',
-    month: '2-digit',
-    day: '2-digit',
-  });
 
   const [selectedValue, setSelectedValue] = useState('');
-
-  const selectedDateTime = useMemo(() => {
-    return `${String(formattedDate)} ${selectedValue}`;
-  }, [selectedValue, formattedDate]);
+  const { selectDateTime } = useBooking();
 
   const handleSelect = (value: string) => {
     setSelectedValue(value);
   };
+
+  const handleSubmit = (dateTime: string) => {
+    selectDateTime(dateTime);
+  };
+  const formattedDate = `${selectedDate?.toLocaleDateString('en-UK', {
+    year: '2-digit',
+    month: '2-digit',
+    day: '2-digit',
+  })} ${selectedValue}`;
 
   return (
     <Card className="p-4 ">
@@ -78,10 +81,11 @@ export const DateTimeSelector = ({ companySlug }: { companySlug: String }) => {
           size="lg"
           className="w-full mr-5"
           disabled={!selectedValue}
+          onClick={() => handleSubmit(formattedDate)}
         >
           Submit
         </Button>
-        {selectedValue ? <span>Selected Date: {selectedDateTime}</span> : null}
+        {selectedValue ? <span>Selected Date: {formattedDate}</span> : null}
       </CardFooter>
     </Card>
   );

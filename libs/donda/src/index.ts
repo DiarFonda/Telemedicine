@@ -5,3 +5,6 @@ export * from './lib/skeleton/skeleton';
 export * from './lib/calendar/Calendar';
 export * from './lib/select/select';
 export * from './lib/button/Button';
+export * from './lib/input/Input';
+export * from './lib/label/Label';
+export * from './lib/radio/radio-group';
